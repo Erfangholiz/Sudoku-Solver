@@ -24,10 +24,10 @@ def sudoku_backtracker(x = 0, y = 0, value = 1):
     if sudoku[x][y] != '.' and y < 8: 
         sudoku_backtracker(x, y + 1, 1)
         return
-    if sudoku[x][y] != '.' and y == 8 and x < 8: 
+    elif sudoku[x][y] != '.' and y == 8 and x < 8: 
         sudoku_backtracker(x + 1, 0, 1)
         return
-    if sudoku[x][y] != '.' and y == 8 and x == 8:
+    elif sudoku[x][y] != '.' and y == 8 and x == 8:
         print(sudoku)
         return
     
@@ -36,12 +36,12 @@ def sudoku_backtracker(x = 0, y = 0, value = 1):
         sudoku_backtracker(x, y + 1, 1)
         sudoku[x][y] = '.'
 
-    if check_validity(sudoku, x, y, value) and y == 8 and x < 8:
+    elif check_validity(sudoku, x, y, value) and y == 8 and x < 8:
         sudoku[x][y] = str(value)
         sudoku_backtracker(x + 1, 0, 1)
         sudoku[x][y] = '.'
     
-    if check_validity(sudoku, x, y, value) and y == 8 and x == 8:
+    elif check_validity(sudoku, x, y, value) and y == 8 and x == 8:
         sudoku[x][y] = str(value)
         print(sudoku)
         return
